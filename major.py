@@ -26,7 +26,6 @@ data.columns
 indices = [43, 12, 39]
 
 # Create a DataFrame of the chosen samples
-# .reset_index(drop = True) resets the index from 0, 1 and 2 instead of 100, 200 and 300 
 samples = pd.DataFrame(data.loc[indices], columns = data.columns).reset_index(drop = True)
 print ("Chosen samples of wholesale customers dataset:")
 # Get the means 
@@ -212,19 +211,6 @@ for n_clusters in range_n_clusters:
 
     print ("For n_clusters = {}. The average silhouette_score is : {}".format(n_clusters, score))
 
-from sklearn.svm import SVC
-
-'''from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-X_train, X_test, y_train, y_test = train_test_split(new_data, new_feature, test_size=0.25, random_state=42)
-pipe_svc = Pipeline([('scl',StandardScaler()),('clf',SVC(random_state=1))])
-param_range =[0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0]
-param_grid =[{'clf_C': param_range,'clf_kernel':['linear']},{'clf_C':param_range,'clf_gamma':param_range,'clf_kernel':['rbf']}]
-gs=GridSearchCV(estimator=pipe_svc,param_grid=param_grid,scoring='accuracy',cv=3,n_jobs=-1)
-gs=gs.fit(X_train,y_train)
-print(gs.best_score_)
-print(gs.best_params_)'''
 
 for var in dep_vars:
 
